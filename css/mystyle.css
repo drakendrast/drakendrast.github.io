@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Mina');
+@import url('https://fonts.googleapis.com/css?family=Lora');
 
 *{
 	margin:0;
@@ -6,8 +6,7 @@
 } 
 
 body {
-	/*background-image: url();*/
-	font-family: 'Mina', sans-serif;
+	font-family: 'Lora', serif;
 	overflow-x: hidden;
 }
 
