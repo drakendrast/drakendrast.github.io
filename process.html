@@ -22,13 +22,480 @@
 	<div>
 			<h2> Assignment Description </h2>
 		<br/>	
-			<p> To be announced.</p>
+			<p>This is a two-part assignment, with the first portion dealing with static imagery, and the second part dealing with images in motion.</p>
+			<p>The first part of the Processing assignment is to create a self portrait using various shapes.</p>
+			<p>The second portion of the Processing assignment is to... do something with an orb.</p>
+			<p>To be continued.</p>
 		<br/>
 		<br/>
 			<h3> Process/Tools | Inspiration | Concept </h3>
 		<br/>	
+			<h2>Assignment 1:</h2>
+			<p>Using a Processing engine (version 3.3.7), I wrote lines of code that created various shapes. With the exception of two ellipses and a triangle, my portrait was made completely from the "begin/endShape" function.</p>
+		<br/>
+			<h2>Assignment 2:</h2>
 			<p> To be written. </p>
 	</div>
+	<br/>
+	<div>
+
+<img src="images/friday_sketch" alt="This is a Processing Portrait of An. The colors are warm, and the shapes are all geometric. An wears a snarky expression.">
+<br/>
+	<p align="center"> This is my Processing Portrait. <br/> Below is my code:</p>
+<br/>
+	<p>
+//~400 lines. Not sure why I killed myself over this assignment T__T 
+size (395,500);
+background(220,210,180);
+noStroke();
+
+//0.hair back
+fill(75,60,46);
+beginShape();
+vertex(293,327);
+vertex(308,210);
+vertex(335,195);
+vertex(344,239);
+vertex(364,286);
+vertex(370,373);
+endShape(CLOSE);
+
+//1.white shirt base
+fill(251,251,251);
+beginShape();
+vertex(0,500);
+vertex(0,365);
+vertex(31,336);
+vertex(118,314);
+vertex(315,317);
+vertex(381,331);
+vertex(395,344);
+vertex(395,500);
+endShape(CLOSE);
+//1b.white shirt shadow 1
+fill(159,141,98);
+beginShape();
+vertex(205,500);
+vertex(211,486);
+vertex(197,492);
+vertex(221,441);
+vertex(208,444);
+vertex(230,420);
+vertex(228,382);
+vertex(281,350);
+vertex(221,463);
+vertex(219,500);
+endShape(CLOSE);
+//1b.white shirt shadow 2
+fill(217,184,137);
+beginShape();
+vertex(296,500);
+vertex(281,457);
+vertex(298,463);
+vertex(304,423);
+vertex(323,434);
+vertex(347,406);
+vertex(331,459);
+vertex(361,425);
+vertex(351,477);
+vertex(353,500);
+vertex(373,427);
+vertex(395,386);
+vertex(385,431);
+vertex(381,477);
+vertex(395,469);
+vertex(395,500);
+endShape(CLOSE);
+//1c.vest
+fill(55,48,43);
+////left
+beginShape();
+vertex(0,431);
+vertex(6,414);
+vertex(18,405);
+vertex(23,393);
+vertex(51,360);
+vertex(113,306);
+vertex(92,349);
+vertex(32,404);
+vertex(20,424);
+vertex(0,438);
+endShape(CLOSE);
+////right
+beginShape();
+vertex(233,500);
+vertex(237,471);
+vertex(236,406);
+vertex(280,343);
+vertex(274,421);
+vertex(302,500);
+endShape(CLOSE);
+
+//2.neck segment, in front of shirt, behind hair[3]
+//2a.neck-chest
+fill(250,200,127);
+beginShape();
+vertex(35,500);
+vertex(36,484);
+vertex(111,352);
+vertex(133,343);
+vertex(186,355);
+vertex(161,409);
+vertex(73,500);
+endShape(CLOSE);
+//2b.neck-neck
+fill(140,94,44);
+beginShape();
+vertex(129,280);
+vertex(132,351);
+vertex(141,365);
+vertex(158,371);
+vertex(176,362);
+vertex(231,280);
+endShape(CLOSE);
+
+//3.hair segment, in front of shirt, behind face
+fill(62,46,33);
+beginShape();
+vertex(99,159);
+vertex(92,173);
+vertex(89,213);
+vertex(71,265);
+vertex(80,308);
+vertex(96,293);
+vertex(96,312);
+vertex(63,365);
+vertex(59,398);
+vertex(96,361);
+vertex(85,394);
+vertex(71,416);
+vertex(74,494);
+vertex(103,461);
+vertex(117,418);
+vertex(128,360);
+vertex(140,339);
+vertex(136,293);
+endShape(CLOSE);
+
+//4.face, in front of neck and hair[3], behind hair-right[6] and hair-top[7]
+//4a.face base (color medium)
+fill(202,131,71);
+beginShape();
+vertex(98,161);
+vertex(94,173);
+vertex(100,270);
+vertex(117,284);
+vertex(168,301);
+vertex(248,274);
+vertex(270,180);
+vertex(211,64);
+endShape(CLOSE);
+//4b.face shadow (color dark)
+////jaw:
+fill(120,73,41);
+beginShape();
+vertex(270,180);
+vertex(238,182);
+vertex(221,207);
+vertex(235,228);
+vertex(215,239);
+vertex(215,255);
+vertex(176,270);
+vertex(139,291);
+vertex(168,301);
+vertex(248,274);
+endShape(CLOSE);
+////nose:
+fill(151,89,46);
+beginShape();
+vertex(159,231);
+vertex(140,227);
+vertex(123,206);
+vertex(136,216);
+vertex(145,211);
+vertex(156,220);
+vertex(161,213);
+endShape(CLOSE);
+////eye on left:
+fill(122,83,52);
+beginShape();
+vertex(133,126);
+vertex(153,146);
+vertex(156,171);
+vertex(143,174);
+vertex(126,181);
+vertex(112,173);
+vertex(109,148);
+endShape(CLOSE);
+////forehead:
+fill(154,101,53);
+beginShape();
+vertex(140,122);
+vertex(169,138);
+vertex(188,126);
+vertex(193,138);
+vertex(230,142);
+vertex(224,59);
+endShape(CLOSE);
+////eye-right:
+fill(123,78,36);
+beginShape();
+vertex(203,176);
+vertex(213,180);
+vertex(219,190);
+vertex(206,190);
+vertex(194,181);
+endShape(CLOSE);
+
+//4c.face highlight (color light) 5 shapes
+////left cheek
+fill(255,200,135);
+beginShape();
+vertex(98,161);
+vertex(110,162);
+vertex(112,173);
+vertex(121,189);
+vertex(105,201);
+vertex(96,216);
+vertex(94,173);
+endShape(CLOSE);
+////right cheek
+fill(219,146,84);
+beginShape();
+vertex(176,210);
+vertex(206,200);
+vertex(183,216);
+vertex(170,235);
+endShape(CLOSE);
+////nose
+fill(254,209,161);
+beginShape();
+vertex(145,175);
+vertex(151,175);
+vertex(146,198);
+vertex(133,205);
+vertex(122,200);
+endShape(CLOSE);
+////lip
+fill(255,200,132);
+beginShape();
+vertex(120,209);
+vertex(137,228);
+vertex(118,227);
+vertex(107,225);
+vertex(101,236);
+vertex(99,222);
+endShape(CLOSE);
+////chin
+fill(181,127,69);
+triangle (110,252,111,268,103,258);
+
+//5.features, in front of face
+//5a.lips (3 shapes w/ 3 diff colors)
+////light color
+fill(213,138,90);
+beginShape();
+vertex(110,236);
+vertex(121,238);
+vertex(122,245);
+vertex(117,249.5);
+vertex(112,243);
+endShape(CLOSE);
+////medium color
+fill(185,104,53);
+beginShape();
+vertex(121,238);
+vertex(122,245);
+vertex(117,249.5);
+vertex(136,253);
+endShape(CLOSE);
+////dark color
+fill(152,85,34);
+beginShape();
+vertex(110,236);
+vertex(105,237);
+vertex(113,230);
+vertex(123,236);
+vertex(133,240);
+vertex(136,253);
+vertex(121,238);
+endShape(CLOSE);
+
+//5b.eyes + cut off
+////left
+fill(86,58,37);
+ellipseMode(CORNER);
+ellipse(128,145,14,14);
+////right
+fill(86,58,37);
+ellipseMode(CORNER);
+ellipse(190,169,14,14);
+////left lid - color: skin dark
+fill(122,83,52);
+beginShape();
+vertex(139,142);
+vertex(129.8,142.67);
+vertex(139,150);
+vertex(141,156.33);
+vertex(140.25,163.33);
+vertex(146,151.7);
+endShape(CLOSE);
+////right lid - color: skin medium
+fill(202,131,71);
+beginShape();
+vertex(193.6,164);
+vertex(194,168.67);
+vertex(205.6,176);
+vertex(214.6,183.33);
+vertex(212,173.7);
+endShape(CLOSE);
+
+//5c.eyelashes
+fill(40,30,20);
+////left
+beginShape();
+vertex(120,137);
+vertex(129.8,141.7);
+vertex(139,148);
+vertex(142,156.3);
+vertex(141.25,164.3);
+vertex(140.25,163.3);
+vertex(140,156.3);
+vertex(139,151);
+vertex(129.8,143.7);
+vertex(120,139);
+endShape(CLOSE);
+////right
+beginShape();
+vertex(214.6,183.33);
+vertex(205.6,177);
+vertex(194,169.7);
+vertex(182.6,170);
+vertex(174.25,174.7);
+vertex(172.25,174.7);
+vertex(182.6,168);
+vertex(194,167.7);
+vertex(205.6,175);
+endShape(CLOSE);
+
+
+//5d.eyebrows
+////left brow
+fill(93,63,36);
+beginShape();
+vertex(133,128.33);
+vertex(143.6,136.33);
+vertex(148,148);
+vertex(138,140.33);
+vertex(128.25,135);
+endShape(CLOSE);
+////right brow
+fill(123,75,39);
+beginShape();
+vertex(228.6,154);
+vertex(185.25,148);
+vertex(180,154.33);
+vertex(185,157);
+vertex(212,161);
+vertex(236.25,175.33);
+endShape(CLOSE);
+
+//6.hair-right
+fill(54,46,33);
+////start at right shoulder
+beginShape();
+vertex(316,317);
+vertex(327,291);
+vertex(344,205);
+vertex(329,142);
+vertex(322,99);
+vertex(315,81);
+vertex(294,62);
+vertex(279,55);
+vertex(272,59);
+vertex(222,66.7);
+vertex(221,88);
+vertex(203,96);
+vertex(215,124);
+vertex(232,216);
+vertex(238,198);
+vertex(236,177);
+vertex(247,213);
+vertex(228,285);
+////jawline, begin the hairlines
+vertex(191,316);
+vertex(191,327);
+vertex(175,344);
+vertex(172,366);
+vertex(166,383);
+vertex(150,393);
+vertex(150,406);
+vertex(121,434);
+vertex(121,445);
+vertex(88,476);
+vertex(84,500);
+////length 1, 1/2 done.
+vertex(95,500);
+vertex(107.5,486);
+vertex(107,480);
+vertex(184,385);
+vertex(193,378);
+vertex(186,393);
+vertex(196,389);
+vertex(176,450);
+vertex(160,500);
+vertex(189,500);
+vertex(196,446);
+vertex(221,404);
+vertex(239,380);
+vertex(228,412);
+vertex(232,464);
+vertex(242,407);
+vertex(274,364);
+vertex(264,412);
+vertex(283,447);
+vertex(277,402);
+vertex(289,381);
+vertex(284,371);
+vertex(295,360);
+vertex(295,340);
+vertex(302,326);
+endShape(CLOSE);
+
+//7.hair-top (covers eye on left)
+fill(77,58,47);
+beginShape();
+vertex(272,59);
+vertex(261.3,46.7);
+vertex(247,35.3);
+vertex(212.7,33);
+vertex(175.7,38);
+vertex(136,69);
+vertex(113,95);
+vertex(106.7,108);
+vertex(96.7,136);
+vertex(94,157);
+vertex(96,166);
+vertex(99,161.7);
+vertex(109,157.7);
+vertex(109,162.7);
+vertex(116,174.7);
+vertex(114.7,159);
+vertex(119.7,166);
+vertex(121,150);
+vertex(128,136);
+vertex(156.7,122);
+vertex(191,103);
+vertex(202,92.7);
+vertex(219.6,87);
+vertex(222,66.7);
+endShape(CLOSE);
+
+//LOLOL IT'S FINALLY OVER AHAHAHAHA.
+
+saveFrame("friday_sketch.jpg");
+</p>
+</div>
 
 </body>
 </html>
