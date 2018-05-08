@@ -20,7 +20,7 @@ ul {
 }
 
 ul li {
-	float: center;
+	float: left;
 	padding-left: 60px;
 	list-style-type:none;
 	line-height:60px; 
