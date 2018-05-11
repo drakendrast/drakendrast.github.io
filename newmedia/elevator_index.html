@@ -16,6 +16,12 @@
 		    position: relative;
 		}
 
+		.startbox {
+			position: absolute;
+		    top:50%;
+		    width: 100%;
+		}
+
 		img {
 		    display: block;
 		    width: auto;
@@ -35,27 +41,18 @@
 
 <div class="container">
   
-  <img src="images/elevator/cover.jpg" style="width: 100%">
+  <img src="images/elevator/cover.jpg" alt="a single elevator door" style="width: 100%">
   
-  <div class="fixed">
-  		<table align="center">
-		<tr>
-			<td></td>
-			<td><p align="center"><button class="btn" align="center"><a href="pg1.html"> New Game </a></button></p></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><p align="center"><button class="btn" align="center"><a href="newmedia/pg1.html"> Load Game </a></button></p></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><p align="center"><button class="btn"><a href="newmedia/help.html"> Help </a></button></p></td>
-			<td><p align="center"><button class="btn" align="center"><a href="newmedia/pg1.html"> Settings </a></button></p></td>
-			<td><p align="center"><button type="button" 
-	        onclick="window.open('', '_self', ''); window.close();" align="center">Quit Game</button></p></td>
-		</tr>
-		</table>
+  <div class="startbox">	
+		<p align="center">
+			<button class="btn"><a href="pg1.html"> New Game </a></button>
+			<br/>
+			<br/>
+			<button class="btn"><a href="help.html"> Help </a></button>
+			<br/>
+			<br/>
+			<button type="button" onclick="window.open('', '_self', ''); window.close();" align="center">Quit Game</button>
+		</p>
   </div>
 
 
