@@ -1,49 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>hallway</title>	
+	<!-- <link rel="stylesheet" type="text/css" href="css/elevator-story.css"> -->
+	<title>Hallway</title>	
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
-		div.fixed {
-			background-color: black;
-			opacity: 0.5;
+		*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+} 
 
-		    position: fixed;
-		    bottom: 10%;
-		    width: 100%;
-		    border: 3px solid #cccccc;
-		}
+.container {
+    position: relative;
+}
+
+.storybox {
+	position: absolute;
+	background-color: #1a1a1a;
+    left: 1%;
+    height: 27.5%;
+    width: 98%;	
+    bottom: 1%;
+    padding: 1%;
+}
+
+.paragraphbox {
+	background-color: #333333;
+    height: 70%;
+    width: 100%;	
+    bottom: 1%;
+    padding: 1%;
+}
+
+.bottomright {
+	color:#cccccc;"
+    position: absolute;
+    width: 98%;
+    height: 20%;
+    right: 1%;
+    bottom:1%;
+}
+
+.bottomright ul {
+    list-style-type: none;
+    overflow: hidden;
+    position: relative;
+    bottom: 90%;
+}
+
+.bottomright li {   
+    float: right;
+    padding: 1.5%; 
+}
+
+.bottomright li a {
+    display: block;
+    color: #a6a6a6;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bottomright li a:hover {
+    color:white;
+}
+
+
+img {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+}
+img {
+    width: 100%
+    height: auto;
+}
+
+area.shape {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+map:hover area.shape {
+	opacity: 0.3;
+}
+
 	</style>
+
+
 </head>
 
-<body bgcolor="#000000">
+<body style="background-color:black">
 
-<img src="images/elevator/buttons.jpg" alt="two elevator buttons" style="height:100%">
+	<div class="container">
 
+		<img src="images/elevator/hallway.jpg" alt="two elevator doors" style="width:100%" usemap="#image-map">
 
-<div class="fixed">
-  <h3>Insert Name</h3>
-  <p>Taking the elevator every once in a while can't hurt.</p>
-</div>
+		<map name="image-map">
+			<area shape="poly" alt="Elevator Buttons" href="pg3b.html" coords="1293,769,1338,769,1341,957,1293,959">
+			<area shape="poly" alt="Elevator Door" href="pg3a.html" coords="404,364,974,419,988,1392,917,1360,427,1456">
+			<area shape="poly" alt="Elevator Door" href="pg3a.html" coords="1579,490,1842,533,1828,1204,1760,1195,1572,1234">
+		</map>
 
+		<!-- <div class="storybox">
+		<h3 style="margin-left:5%; color:#a6a6a6;">Me </h3>
+			<div class="paragraphbox" style="color: #f2f2f2;">
+					<p style="margin-left: 10%"> Some Paragraph.</p>
+				</div>
+		<div class="storybox bottomright">
+			  <ul>
+			  		<li onclick="window.open('', '_self', ''); window.close();"><a href="elevator_index.html">Quit Game</a></li>
+					<li><a href="elevator_index.html">Menu</a></li>
+				 	<li><a href="help.html">Help</a></li>
+			     	<li> Settings </li>  
+					<li><a href="load.html"> Load </a></li>
+   					<li> Save </li>
+			     	<li> Log </li>
+			     	<li><a href="elevator_index.html">Back</a></li>
+			     	<li><a href="pg2.html"> Next </a></li>
+			  </ul>
+			</div> -->
+			
 
-<p> Elevator goes down. ... ... ... ... ... ... ... ... why isn't it stopping? ... character looks up at the digital read on the evelator. -4. -5. -6. what. -7. -8. character glances down at the floor buttons. None of them at lit... Ding!</p>
+			
+		</div>
 
-<p> character glances up. -10. the doors open. </p>
-
-<p> choices: stay in the elevator | step out. </p>
-
-
-
-
-<p> There are some buttons along the bottom of the screen, labelled: Log, Save, Load, Quit to Menu, Quit Game, and maybe Help, Settings. </p>
-
-	<ul>
-		<li> <a href="load.html"> Save / Load </a></li>
-		<li> <a href="index.html"> Quit to Menu </a></li>
-		<li> Quit Game </li>
-		<li> Help </li>
-		<li> Settings </li>
-	</ul>
+		
+	</div>
 
 </body>
 </html>
