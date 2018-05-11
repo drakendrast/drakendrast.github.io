@@ -4,11 +4,39 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/elevator-front-page.css">
 	<title>Start Menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+		} 
+
+		.container {
+		    position: relative;
+		}
+
+		img {
+		    display: block;
+		    width: auto;
+		    height: 100%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    z-index: -1;
+		}
+		img {
+		    width: 100%
+		    height: auto;
+		}
+	</style>
 </head>
 
 <body style="background-color:black">
 
+<div class="container">
+  
   <img src="images/elevator/cover.jpg" style="width: 100%">
+  
   <div class="fixed">
   		<table align="center">
 		<tr>
@@ -32,32 +60,7 @@
 
 
 
-
-
-<!-- 
-
-	<div class="imgbox">
-		<img src="images/elevator/cover.jpg" class="center-fit">
-	</div>
-
-	<table align="center">
-		<tr>
-			<td></td>
-			<td><p align="center"><button class="btn" align="center"><a href="pg1.html"> New Game </a></button></p></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><p align="center"><button class="btn" align="center"><a href="newmedia/pg1.html"> Load Game </a></button></p></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><p align="center"><button class="btn"><a href="newmedia/help.html"> Help </a></button></p></td>
-			<td><p align="center"><button class="btn" align="center"><a href="newmedia/pg1.html"> Settings </a></button></p></td>
-			<td><p align="center"><button type="button" 
-	        onclick="window.open('', '_self', ''); window.close();" align="center">Quit Game</button></p></td>
-		</tr>
-	</table> -->
+</div>
 
 </body>
 </html>
