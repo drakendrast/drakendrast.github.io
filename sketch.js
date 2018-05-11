@@ -9,6 +9,10 @@ function draw {
 
 }
 
-mouseClicked = function() {
-    ellipse(mouseX, mouseY, 20, 20);
-};
+// mouseClicked = function() {
+//     ellipse(mouseX, mouseY, 20, 20);
+// };
+
+function mousePressed() {
+	
+}
