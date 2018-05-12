@@ -13,6 +13,7 @@ function draw {
 //     ellipse(mouseX, mouseY, 20, 20);
 // };
 
+//when mouse is clicked....
 function mousePressed() {
-	
+
 }
