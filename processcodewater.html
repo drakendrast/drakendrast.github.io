@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/portfolio-style.css">
+	<title>Processing</title>
+	<style type="text/css">
+		a:hover {
+			font-weight: bold;
+		} 
+	</style>
+</head>
+<body>
+
+	<ul>
+		<li> <a href="index.html"> Home </a></li>
+		<li> <a href="collage.html"> Collage </a></li>
+		<li> <a href="glitch.html"> Glitch </a></li>
+		<li> <a href="video.html"> Video/Sound </a></li>
+		<li> <a href="process.html"> Processing </a></li>
+		<li> <a href="net_art.html"> Net_Art </a></li>
+	</ul>
+<br/>
+<br/>
+	<p align="center">
+		<a onclick="window.open('', '_self', ''); window.close();"> ~ Close Window ~ </a>
+	</p>
+<br/>
+	<h2 align="center">Code for Processing Portrait:</h2>
+<br/>
+	<div>
+				<p>
+ 				<pre>
+<span style="color: #666666;">//source:&nbsp;https://www.youtube.com/watch?v=BZUdGqeOD0w</span>
+<span style="color: #666666;">//the&nbsp;dan&nbsp;sherman&nbsp;guy&nbsp;is&nbsp;crazy&nbsp;good</span>
+<span style="color: #666666;">//when&nbsp;he&nbsp;explains&nbsp;stuff,&nbsp;it&nbsp;makes&nbsp;sense,&nbsp;but&nbsp;when&nbsp;you&nbsp;try&nbsp;to&nbsp;explain&nbsp;it,&nbsp;you&nbsp;can&apos;t.</span>
+
+<span style="color: #666666;">//DIRECTIONS:&nbsp;click&nbsp;or&nbsp;drag&nbsp;mouse.&nbsp;water&nbsp;ripple&nbsp;effect.</span>
+<span style="color: #666666;">//NOTE:&nbsp;program&nbsp;loses&nbsp;it&nbsp;if&nbsp;you&nbsp;click&nbsp;or&nbsp;drag&nbsp;mouse&nbsp;off&nbsp;screen.</span>
+
+<span style="color: #E2661A;">int</span> cols = 200;
+<span style="color: #E2661A;">int</span> rows = 200;
+<span style="color: #E2661A;">float</span> [][] current;   <span style="color: #666666;">//array#1 holds current state, can be any word</span>
+<span style="color: #E2661A;">float</span> [][] previous;  <span style="color: #666666;">//array#2 hold state from previous frame, can be any word</span>
+
+<span style="color: #E2661A;">float</span> dampening = 0.98; <span style="color: #666666;">//ripple intensity (pick a number between 0 &amp; 1)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//example: .9 = small, .999 = very large</span>
+
+<span style="color: #33997E;">void</span> <span style="color: #006699;"><b>setup</b></span> () {
+&nbsp;&nbsp;<span style="color: #006699;">size</span>(600,400);      <span style="color: #666666;">//canvas size</span>
+&nbsp;&nbsp;cols&nbsp;=&nbsp;<span style="color: #D94A7A;">width</span>;
+&nbsp;&nbsp;rows&nbsp;=&nbsp;<span style="color: #D94A7A;">height</span>;
+current&nbsp;=&nbsp;<span style="color: #33997E;">new</span> <span style="color: #E2661A;">float</span>[cols][rows];    <span style="color: #666666;">//this is in setup so...</span>
+previous&nbsp;=&nbsp;<span style="color: #33997E;">new</span> <span style="color: #E2661A;">float</span>[cols][rows];   <span style="color: #666666;">//when you change the window size,</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//the 2-dimensional arrays also change.</span>
+}
+
+<span style="color: #33997E;">void</span> <span style="color: #006699;"><b>mousePressed</b></span>() {
+&nbsp;&nbsp;current[<span style="color: #D94A7A;">mouseX</span>][<span style="color: #D94A7A;">mouseY</span>] = 255;     <span style="color: #666666;">//ripple color is white</span>
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color: #33997E;">void</span> <span style="color: #006699;"><b>mouseDragged</b></span>() {
+&nbsp;&nbsp;current[<span style="color: #D94A7A;">mouseX</span>][<span style="color: #D94A7A;">mouseY</span>] = 255;     
+}
+
+<span style="color: #33997E;">void</span> <span style="color: #006699;"><b>draw</b></span> () {
+&nbsp;&nbsp;<span style="color: #006699;">background</span>(0);          <span style="color: #666666;">//background is black</span>
+&nbsp;&nbsp;<span style="color: #006699;">loadPixels</span>();
+&nbsp;&nbsp;<span style="color: #669900;">for</span> (<span style="color: #E2661A;">int</span> i = 1; i &lt; cols-1; i++) {    <span style="color: #666666;">// a method for looping through every non-edge element.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #669900;">for</span> (<span style="color: #E2661A;">int</span> j = 1; j &lt; rows-1; j++) {  <span style="color: #666666;">// same thing, excpet for j now.</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current[i][j]&nbsp;=&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//basically current[i][j] is...</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous&nbsp;[i-1][j]&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//...a function of the previous[i][j].</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous&nbsp;[i+1][j]&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous&nbsp;[i][j-1]&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">// &quot;add all the things around previous, then...</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous&nbsp;[i][j+1])&nbsp;/&nbsp;2&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">// ...subtract current value.&quot; </span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current&nbsp;[i][j];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current[i][j]&nbsp;=&nbsp;current[i][j]&nbsp;*&nbsp;dampening;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #E2661A;">int</span> index = i + j * cols;                   <span style="color: #666666;">//&quot;pixels are stored in a one dimensional array, but</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #D94A7A;">pixels</span>[index] = <span style="color: #006699;">color</span>(current[i][j]*255);   <span style="color: #666666;">//...we&apos;re looping through this two dimensional array,</span>
+&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//...so find the right location in the one dimensional array,</span>
+}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #666666;">//...and give me a color = current[i][j] value.</span>
+
+<span style="color: #006699;">updatePixels</span>();           <span style="color: #666666;">//use value of current[i][j] to be pixel color</span>
+
+<span style="color: #E2661A;">float</span> [][] temp = previous;  <span style="color: #666666;">//this is an algorithm to swap stuff around</span>
+previous&nbsp;=&nbsp;current;
+current&nbsp;=&nbsp;temp;
+}
+
+		</pre>
+	</p>
+	</div>
+	<p align="center">
+		<a onclick="window.open('', '_self', ''); window.close();">~ Close Window ~</a>
+	</p>
+
+<br/>
+<br/>
+<br/>
+</body>
+</html>
