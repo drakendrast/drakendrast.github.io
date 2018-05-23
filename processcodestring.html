@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/portfolio-style.css">
+	<title>Processing</title>
+	<style type="text/css">
+		a:hover {
+			font-weight: bold;
+		} 
+	</style>
+</head>
+<body>
+
+	<ul>
+		<li> <a href="index.html"> Home </a></li>
+		<li> <a href="collage.html"> Collage </a></li>
+		<li> <a href="glitch.html"> Glitch </a></li>
+		<li> <a href="video.html"> Video/Sound </a></li>
+		<li> <a href="process.html"> Processing </a></li>
+		<li> <a href="net_art.html"> Net_Art </a></li>
+	</ul>
+<br/>
+<br/>
+	<p align="center">
+		<a onclick="window.open('', '_self', ''); window.close();"> ~ Close Window ~ </a>
+	</p>
+<br/>
+	<h2 align="center">Code for P5 Sketch :</h2>
+<br/>
+	<div>
+				<pre>
+var&nbsp;numSegments&nbsp;=&nbsp;72,
+&nbsp;&nbsp;x&nbsp;=&nbsp;[],
+&nbsp;&nbsp;y&nbsp;=&nbsp;[],
+&nbsp;&nbsp;angle&nbsp;=&nbsp;[],
+&nbsp;&nbsp;segLength&nbsp;=&nbsp;26,
+&nbsp;&nbsp;targetX,&nbsp;targetY,
+&nbsp;&nbsp;ballX&nbsp;=&nbsp;50,
+&nbsp;&nbsp;ballY&nbsp;=&nbsp;50,
+&nbsp;&nbsp;ballXDirection&nbsp;=&nbsp;1,
+&nbsp;&nbsp;ballYDirection&nbsp;=&nbsp;-1;
+
+<span style="color: #669900;">for</span> (var i = 0; i &lt; numSegments; i++) {
+&nbsp;&nbsp;x[i]&nbsp;=&nbsp;0;
+&nbsp;&nbsp;y[i]&nbsp;=&nbsp;0;
+&nbsp;&nbsp;angle[i]&nbsp;=&nbsp;0;
+}
+
+function&nbsp;<span style="color: #006699;"><b>setup</b></span>() {
+&nbsp;&nbsp;createCanvas(windowWidth,&nbsp;windowHeight);
+&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(20);
+&nbsp;&nbsp;<span style="color: #006699;">stroke</span>(0, 120);
+&nbsp;&nbsp;<span style="color: #006699;">noFill</span>();
+
+&nbsp;&nbsp;x[x.<span style="color: #33997E;">length</span>-1] = <span style="color: #D94A7A;">width</span>/2; <span style="color: #666666;">// Set base x-coordinate</span>
+&nbsp;&nbsp;y[x.<span style="color: #33997E;">length</span>-1] = <span style="color: #D94A7A;">height</span>;  <span style="color: #666666;">// Set base y-coordinate</span>
+}
+
+function&nbsp;<span style="color: #006699;"><b>draw</b></span>() {
+&nbsp;&nbsp;<span style="color: #006699;">background</span>(255);
+
+&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(20);
+&nbsp;&nbsp;ballX&nbsp;=&nbsp;ballX&nbsp;+&nbsp;16.17&nbsp;*&nbsp;ballXDirection;
+&nbsp;&nbsp;ballY&nbsp;=&nbsp;ballY&nbsp;+&nbsp;10.0&nbsp;*&nbsp;ballYDirection;
+&nbsp;&nbsp;<span style="color: #669900;">if</span>(ballX &gt; <span style="color: #D94A7A;">width</span>-25 || ballX &lt; 25) {
+&nbsp;&nbsp;&nbsp;&nbsp;ballXDirection&nbsp;*=&nbsp;-1;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #669900;">if</span>(ballY &gt; <span style="color: #D94A7A;">height</span>-25 || ballY &lt; 25) {
+&nbsp;&nbsp;&nbsp;&nbsp;ballYDirection&nbsp;*=&nbsp;-1;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #006699;">ellipse</span>(ballX, ballY, 30, 30);
+
+&nbsp;&nbsp;reachSegment(0,&nbsp;ballX,&nbsp;ballY);
+&nbsp;&nbsp;<span style="color: #669900;">for</span>(var i=1; i&lt;numSegments; i++) {
+&nbsp;&nbsp;&nbsp;&nbsp;reachSegment(i,&nbsp;targetX,&nbsp;targetY);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #669900;">for</span>(var j=x.<span style="color: #33997E;">length</span>-1; j&gt;=1; j--) {
+&nbsp;&nbsp;&nbsp;&nbsp;positionSegment(j,&nbsp;j-1);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #669900;">for</span>(var k=0; k&lt;x.<span style="color: #33997E;">length</span>; k++) {
+&nbsp;&nbsp;&nbsp;&nbsp;segment(x[k],&nbsp;y[k],&nbsp;angle[k],&nbsp;(k+1)*2);
+&nbsp;&nbsp;}
+}
+
+function&nbsp;positionSegment(a,&nbsp;b)&nbsp;{
+&nbsp;&nbsp;x[b]&nbsp;=&nbsp;x[a]&nbsp;+&nbsp;<span style="color: #006699;">cos</span>(angle[a]) * segLength;
+&nbsp;&nbsp;y[b]&nbsp;=&nbsp;y[a]&nbsp;+&nbsp;<span style="color: #006699;">sin</span>(angle[a]) * segLength;
+}
+
+function&nbsp;reachSegment(i,&nbsp;xin,&nbsp;yin)&nbsp;{
+&nbsp;&nbsp;var&nbsp;dx&nbsp;=&nbsp;xin&nbsp;-&nbsp;x[i];
+&nbsp;&nbsp;var&nbsp;dy&nbsp;=&nbsp;yin&nbsp;-&nbsp;y[i];
+&nbsp;&nbsp;angle[i]&nbsp;=&nbsp;<span style="color: #006699;">atan2</span>(dy, dx);
+&nbsp;&nbsp;targetX&nbsp;=&nbsp;xin&nbsp;-&nbsp;<span style="color: #006699;">cos</span>(angle[i]) * segLength;
+&nbsp;&nbsp;targetY&nbsp;=&nbsp;yin&nbsp;-&nbsp;<span style="color: #006699;">sin</span>(angle[i]) * segLength;
+}
+
+function&nbsp;segment(x,&nbsp;y,&nbsp;a,&nbsp;sw)&nbsp;{
+&nbsp;&nbsp;<span style="color: #006699;">strokeWeight</span>(sw);
+&nbsp;&nbsp;push();
+&nbsp;&nbsp;<span style="color: #006699;">translate</span>(x, y);
+&nbsp;&nbsp;<span style="color: #006699;">rotate</span>(a);
+&nbsp;&nbsp;<span style="color: #006699;">line</span>(0, 0, segLength, 0);
+&nbsp;&nbsp;pop();
+}
+
+</pre>
+	</div>
+	<p align="center">
+		<a onclick="window.open('', '_self', ''); window.close();">~ Close Window ~</a>
+	</p>
+
+<br/>
+<br/>
+<br/>
+</body>
+</html>
