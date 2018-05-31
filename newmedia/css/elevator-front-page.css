@@ -1,0 +1,29 @@
+
+*{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+        } 
+
+        .container {
+            position: relative;
+        }
+
+        .startbox {
+            position: absolute;
+            top:50%;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            width: auto;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: -1;
+        }
+        img {
+            width: 100%
+            height: auto;
+        }
